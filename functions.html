@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Anonymous Functions</title>
+    </head>
+
+    <body>
+        <script>
+            console.warn(` Anonymous Functions
+            1. Print odd numbers in an Array
+            2. Convert all the strings to title caps in a string array
+            3. Sum of all numbers in an array
+            4. Return all the prime numbers in an array
+            5. Return all the palindromes in an array
+            6. Return median of two sorted arrays of same size
+            7. Remove duplicates from array
+            8. Rotate an array by k times and return the rotated array
+            `);
+            /* Print odd numbers in an Array */
+            console.warn(`Output : 1 `);
+            function oddNumber(array) {
+                let arr=[];
+                array.forEach(function (item) {
+                    if (item % 2 != 0)
+                    arr.push(item)
+                });
+                console.log(arr);
+            }
+            oddNumber([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+
+            /* Convert all the strings to title caps in a string array */
+            console.warn(`Output : 2 // Convert all the strings to title caps in a string array`);
+            let names = ['name1', 'name2', 'Name3'];
+            let name;
+
+            let toTitleCaps = function (names) {
+                for (let i = 0; i < names.length; i++) {
+                    name = names[i];
+                    names[i] = name.substr(0, 1).toUpperCase() + name.substr(1);
+                }
+                console.log(names);
+            };
+            toTitleCaps(names);
+
+            /* Sum of all numbers in an array */
+            console.warn(`Output : 3 // Sum of all numbers in an array `);
+            function array(array) {
+                let total = 0;
+                array.forEach(value => {
+                    total += value;
+                });
+                console.log(total);
+            }
+            array([5, 7, 9]);
+
+
+            /* Return all the prime numbers in an array */
+            console.warn(`Output : 4 // Return all the prime numbers in an array `);
+            let numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], prime = [];
+            let getPrimes = function (arr) {
+                for (let i = 0; i < arr.length; i++) {
+                    let isPrime = true;
+                    for (let j = 2; j <= arr[i] / 2; j++) {
+                        if (arr[i] % j == 0) {
+                            isPrime = false;
+                            break;
+                        }
+                    }
+                    if (isPrime) {
+                        prime.push(arr[i]);
+                    }
+                }
+                console.log(prime);
+            }
+            getPrimes(numArr);
+
+            /* Return all the palindromes in an array */
+            console.warn(`Output : 5 // Return all the palindromes in an array`);
+            let arr = ['dad', 'mom', 'abc', 'sis'], pali =[];
+            let getPalindrome = function (arr) {
+                for (let i = 0; i < arr.length; i++) {
+                    rev = arr[i].toString().split('')
+                    reverse = ""
+                    for (let j = rev.length - 1; j >= 0; j--) {
+                        reverse += rev[j]
+                    }
+                    if (reverse == arr[i]) {
+                        pali.push(arr[i])
+                    }
+                }
+                console.log(pali)
+            }
+            getPalindrome(arr);
+
+            /* Return median of two sorted arrays of same size  */
+            console.warn(`Output : 6 // Return median of two sorted arrays of same size `);
+            let arrOne = [1, 2, 3, 4, 5];
+            let arrTwo = [6, 7, 8, 9, 10];
+            let getMedian = function (arrOne, arrTwo) {
+                sArrOne = arrOne.sort((a, b) => a - b);
+                sArrTwo = arrTwo.sort((a, b) => a - b);
+                if (sArrOne.length % 2 == 0) {
+                    value = sArrOne.length / 2;
+                } else {
+                    value = Math.round(sArrOne.length / 2) - 1;
+                }
+                console.log(Math.floor((sArrOne[value] + sArrTwo[value]) / 2));
+            }
+            getMedian(arrOne, arrTwo);
+
+            /* Remove duplicates from array */
+            console.warn(`Output : 7 //  Remove duplicates from array`);
+            let arrDup = [1, 2, 3, 4, 5, 6, 1, 3, 5, 9];
+            let unique = [];
+
+            let removeDuplicate = function (arr) {
+                for (let i = 0; i < arr.length; i++) {
+                    if (unique.indexOf(arr[i]) == -1) {
+                        unique.push(arr[i]);
+                    }
+                }
+                console.log(unique);
+            }
+            removeDuplicate(arrDup);
+
+            /*  Rotate an array by k times and return the rotated array */
+            console.warn(`Output : 8 // Rotate an array by k times and return the rotated array `);
+            let originalArr = [5, 7, 9];
+            let n = 1;
+            let rotateArray = function (arr, rotationTime) {
+                for (let r = 0; r < rotationTime; r++) {
+                    let first = arr[0];
+                    for (let i = 0; i < arr.length - 1; i++) {
+                        arr[i] = arr[i + 1];
+                    }
+                    arr[arr.length - 1] = first;
+                }
+                console.log(arr);
+            }
+            rotateArray(originalArr, n)
+        </script>
+    </body>
+
+</html>
